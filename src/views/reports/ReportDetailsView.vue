@@ -140,6 +140,14 @@ function getCredibilityColor(score: number) {
   if (score >= 0.4) return 'text-yellow-600'
   return 'text-green-600'
 }
+
+function getStatusColor(status: string) {
+  switch (status) {
+    case 'APPROVED': return 'bg-green-100 text-green-700'
+    case 'REJECTED': return 'bg-red-100 text-red-700'
+    default: return 'bg-yellow-100 text-yellow-700'
+  }
+}
 </script>
 
 <template>
@@ -168,8 +176,11 @@ function getCredibilityColor(score: number) {
             <!-- Header -->
             <div class="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
               <div>
-                <h2 class="text-xl font-semibold text-gray-900">
+                <h2 class="text-xl font-semibold text-gray-900 flex items-center gap-2">
                   Report #{{ reportsStore.currentReport.id }}
+                  <span :class="['px-2 py-1 text-xs font-medium rounded-full', getStatusColor(reportsStore.currentReport.status || 'PENDING')]">
+                    {{ reportsStore.currentReport.status || 'PENDING' }}
+                  </span>
                 </h2>
                 <p class="text-sm text-gray-500">
                   Created: {{ formatDate(reportsStore.currentReport.createdOn || '') }}

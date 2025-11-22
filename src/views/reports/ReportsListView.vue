@@ -18,6 +18,14 @@ function getCredibilityColor(score: number) {
   return 'bg-green-100 text-green-700'
 }
 
+function getStatusColor(status: string) {
+  switch (status) {
+    case 'APPROVED': return 'bg-green-100 text-green-700'
+    case 'REJECTED': return 'bg-red-100 text-red-700'
+    default: return 'bg-yellow-100 text-yellow-700'
+  }
+}
+
 function formatDate(dateString: string) {
   if (!dateString) return 'N/A'
   return new Date(dateString).toLocaleDateString('en-US', {
@@ -100,6 +108,9 @@ function formatDate(dateString: string) {
                   <div class="flex flex-wrap items-center gap-2 mb-2">
                     <span :class="['px-2 py-1 text-xs font-medium rounded-full', getCredibilityColor(report.credibilityScore || 0)]">
                       {{ report.incidentType || 'Unknown' }}
+                    </span>
+                    <span :class="['px-2 py-1 text-xs font-medium rounded-full', getStatusColor(report.status || 'PENDING')]">
+                      {{ report.status || 'PENDING' }}
                     </span>
                     <span class="text-sm text-gray-500">
                       {{ formatDate(report.createdOn || '') }}
