@@ -53,8 +53,8 @@ function handleLogout() {
 
   <aside
     :class="[
-      'w-64 bg-gray-900 min-h-screen flex flex-col z-50',
-      'fixed lg:relative',
+      'w-64 bg-gray-900 h-screen flex flex-col z-50 sticky top-0',
+      'fixed lg:sticky',
       'transform transition-transform duration-300 ease-in-out',
       isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
     ]"
@@ -75,7 +75,7 @@ function handleLogout() {
     </div>
 
     <!-- Navigation -->
-    <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
+    <nav class="flex-1 p-4 space-y-1">
       <router-link
         v-for="item in navigation"
         :key="item.path"
