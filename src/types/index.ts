@@ -52,6 +52,14 @@ export interface RESTResponse {
 }
 
 // Report Types
+export const ReportStatus = {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED'
+} as const
+
+export type ReportStatus = typeof ReportStatus[keyof typeof ReportStatus]
+
 export interface Report {
   id?: number
   contact: string
@@ -62,6 +70,7 @@ export interface Report {
   originalMessage: string
   incidentType: string
   credibilityScore: number
+  status?: ReportStatus
   createdOn?: string
   updatedOn?: string
   updatedBy?: string
