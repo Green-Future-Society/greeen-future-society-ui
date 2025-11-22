@@ -25,10 +25,11 @@ export const geocodingService = {
 
   async getCoordinates(locationName: string): Promise<{ latitude: number; longitude: number } | null> {
     const results = await this.searchLocation(locationName)
-    if (results.length > 0) {
+    const first = results[0]
+    if (first) {
       return {
-        latitude: results[0].latitude,
-        longitude: results[0].longitude
+        latitude: first.latitude,
+        longitude: first.longitude
       }
     }
     return null
