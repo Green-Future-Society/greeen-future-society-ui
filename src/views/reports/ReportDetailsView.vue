@@ -72,8 +72,11 @@ const editForm = ref({
   location: '',
   description: '',
   incidentType: '',
-  credibilityScore: 0
+  credibilityScore: 0,
+  status: 'PENDING' as 'PENDING' | 'APPROVED' | 'REJECTED'
 })
+
+const statusOptions = ['PENDING', 'APPROVED', 'REJECTED'] as const
 
 const showMessageModal = ref(false)
 const modalTitle = ref('')
@@ -98,7 +101,8 @@ onMounted(async () => {
         location: reportsStore.currentReport.location || '',
         description: reportsStore.currentReport.description || '',
         incidentType: reportsStore.currentReport.incidentType || '',
-        credibilityScore: reportsStore.currentReport.credibilityScore || 0
+        credibilityScore: reportsStore.currentReport.credibilityScore || 0,
+        status: (reportsStore.currentReport.status || 'PENDING') as 'PENDING' | 'APPROVED' | 'REJECTED'
       }
       // Fetch weather data for this report's location
       fetchWeatherData()
@@ -118,7 +122,8 @@ function cancelEdit() {
       location: reportsStore.currentReport.location || '',
       description: reportsStore.currentReport.description || '',
       incidentType: reportsStore.currentReport.incidentType || '',
-      credibilityScore: reportsStore.currentReport.credibilityScore || 0
+      credibilityScore: reportsStore.currentReport.credibilityScore || 0,
+      status: (reportsStore.currentReport.status || 'PENDING') as 'PENDING' | 'APPROVED' | 'REJECTED'
     }
   }
   isEditing.value = false
@@ -260,6 +265,22 @@ function getStatusColor(status: string) {
                     <p v-else :class="['text-2xl font-bold', getCredibilityColor(reportsStore.currentReport.credibilityScore || 0)]">
                       {{ ((reportsStore.currentReport.credibilityScore || 0) * 10).toFixed(0) }}/10
                     </p>
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium text-gray-500 mb-1">Status</label>
+                    <select
+                      v-if="isEditing"
+                      v-model="editForm.status"
+                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                    >
+                      <option v-for="status in statusOptions" :key="status" :value="status">
+                        {{ status }}
+                      </option>
+                    </select>
+                    <span v-else :class="['px-3 py-1 text-sm font-medium rounded-full', getStatusColor(reportsStore.currentReport.status || 'PENDING')]">
+                      {{ reportsStore.currentReport.status || 'PENDING' }}
+                    </span>
                   </div>
                 </div>
 
