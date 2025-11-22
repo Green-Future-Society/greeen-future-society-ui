@@ -39,7 +39,8 @@ function isActive(path: string) {
 
 function handleLogout() {
   authStore.logout()
-  router.push('/login')
+  // Force navigation after state is cleared
+  window.location.href = '/login'
 }
 </script>
 
