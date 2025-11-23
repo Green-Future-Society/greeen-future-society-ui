@@ -26,7 +26,8 @@ function closeReportModal() {
   selectedReport.value = null
 }
 
-onMounted(async () => {
+async function fetchDashboard() {
+  loading.value = true
   try {
     stats.value = await analyticsService.getDashboardStats()
   } catch (error) {
@@ -34,6 +35,10 @@ onMounted(async () => {
   } finally {
     loading.value = false
   }
+}
+
+onMounted(() => {
+  fetchDashboard()
 })
 
 const crimeChartData = computed(() => {
@@ -119,6 +124,21 @@ function formatDate(dateString: string) {
         <LoadingSpinner v-if="loading" text="Loading dashboard data..." />
 
         <template v-else-if="stats">
+          <!-- Header with Refresh -->
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-lg font-medium text-gray-700">Overview</h2>
+            <button
+              @click="fetchDashboard()"
+              :disabled="loading"
+              class="inline-flex items-center justify-center p-2 text-gray-600 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors disabled:opacity-50 cursor-pointer"
+              title="Refresh"
+            >
+              <svg :class="['w-5 h-5', loading && 'animate-spin']" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </button>
+          </div>
+
           <!-- Stats Grid -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <StatsCard
