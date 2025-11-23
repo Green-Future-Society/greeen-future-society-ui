@@ -124,10 +124,10 @@ function formatDate(dateString: string) {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-50 lg:flex overflow-x-hidden">
+  <div class="min-h-screen bg-gray-50">
     <Sidebar :is-open="sidebarOpen" @close="sidebarOpen = false" />
 
-    <div class="flex-1 flex flex-col min-w-0 overflow-x-hidden">
+    <div class="flex flex-col min-h-screen lg:ml-64">
       <NavBar title="Dashboard" @toggle-sidebar="sidebarOpen = !sidebarOpen" />
 
       <main class="flex-1 p-4 sm:p-6 overflow-x-hidden">
