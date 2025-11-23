@@ -82,10 +82,16 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   function logout() {
-    authService.logout()
+    // Clear all storage
+    localStorage.clear()
+    sessionStorage.clear()
+
+    // Clear state
     user.value = null
     token.value = null
-    toast.info('You have been logged out')
+
+    // Redirect to login
+    window.location.href = '/login'
   }
 
   return {
