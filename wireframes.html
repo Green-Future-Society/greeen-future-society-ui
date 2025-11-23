@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Future Society - Wireframes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .wireframe-section { margin-bottom: 60px; page-break-after: always; }
+    .screen-label { background: #1f2937; color: white; padding: 8px 16px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .wireframe { border: 2px dashed #d1d5db; border-radius: 12px; overflow: hidden; max-width: 1400px; margin: 0 auto; }
+  </style>
+</head>
+<body class="bg-gray-100 p-8">
+  <h1 class="text-3xl font-bold text-center mb-10 text-gray-900">Green Future Society - UI Wireframes</h1>
+
+  <!-- 1. LOGIN SCREEN -->
+  <div class="wireframe-section">
+    <h2 class="text-xl font-semibold text-green-700 mb-4 pb-2 border-b-2 border-green-700">1. Login Screen</h2>
+    <div class="wireframe">
+      <div class="screen-label">AUTH / LOGIN</div>
+      <div class="min-h-[600px] flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100 px-4 py-12">
+        <div class="max-w-md w-full">
+          <!-- Logo/Header -->
+          <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-green-600 rounded-full mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-900">Green Future Society</h1>
+            <p class="text-gray-600 mt-2">Forest Monitoring Admin Portal</p>
+          </div>
+
+          <!-- Login Form -->
+          <div class="bg-white rounded-2xl shadow-xl p-8">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">Welcome Back</h2>
+
+            <div class="space-y-5">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number / Username</label>
+                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Enter your phone number">
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                <div class="relative">
+                  <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg pr-12" placeholder="Enter your password">
+                  <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <label class="flex items-center">
+                  <input type="checkbox" class="w-4 h-4 text-green-600 border-gray-300 rounded">
+                  <span class="ml-2 text-sm text-gray-600">Remember me</span>
+                </label>
+                <a href="#" class="text-sm text-green-600 hover:text-green-700 font-medium">Forgot password?</a>
+              </div>
+
+              <button class="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-700">
+                Sign In
+              </button>
+            </div>
+
+            <div class="mt-6 text-center">
+              <p class="text-gray-600">Don't have an account? <a href="#" class="text-green-600 font-medium">Sign up</a></p>
+            </div>
+          </div>
+
+          <p class="text-center text-gray-500 text-sm mt-6">In honor of Wangari Maathai - Protecting our forests</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. REGISTER SCREEN -->
+  <div class="wireframe-section">
+    <h2 class="text-xl font-semibold text-green-700 mb-4 pb-2 border-b-2 border-green-700">2. Registration Screen</h2>
+    <div class="wireframe">
+      <div class="screen-label">AUTH / REGISTER</div>
+      <div class="min-h-[600px] flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100 px-4 py-12">
+        <div class="max-w-md w-full">
+          <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-green-600 rounded-full mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-900">Green Future Society</h1>
+            <p class="text-gray-600 mt-2">Join our environmental protection network</p>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-xl p-8">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">Create Account</h2>
+
+            <div class="space-y-5">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Enter your full name">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="+254 7XX XXX XXX">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Enter your email">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Create a password">
+              </div>
+              <button class="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-medium">Create Account</button>
+            </div>
+
+            <div class="mt-6 text-center">
+              <p class="text-gray-600">Already have an account? <a href="#" class="text-green-600 font-medium">Sign in</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. DASHBOARD -->
+  <div class="wireframe-section">
+    <h2 class="text-xl font-semibold text-green-700 mb-4 pb-2 border-b-2 border-green-700">3. Dashboard</h2>
+    <div class="wireframe">
+      <div class="screen-label">ADMIN / DASHBOARD</div>
+      <div class="flex min-h-[600px] bg-gray-50">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-900 flex flex-col">
+          <div class="p-6 border-b border-gray-800">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-green-600 rounded-lg"></div>
+              <div>
+                <h1 class="text-white font-bold">Green Future</h1>
+                <p class="text-gray-400 text-xs">Forest Monitoring</p>
+              </div>
+            </div>
+          </div>
+          <nav class="flex-1 p-4 space-y-1">
+            <a href="#" class="block px-4 py-3 rounded-lg bg-green-600 text-white">Dashboard</a>
+            <a href="#" class="block px-4 py-3 rounded-lg text-gray-300">Reports</a>
+            <a href="#" class="block px-4 py-3 rounded-lg text-gray-300">Analytics</a>
+            <a href="#" class="block px-4 py-3 rounded-lg text-gray-300">Weather Data</a>
+            <a href="#" class="block px-4 py-3 rounded-lg text-gray-300">Settings</a>
+          </nav>
+          <div class="p-4 border-t border-gray-800">
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white">J</div>
+              <div class="ml-3">
+                <p class="text-white text-sm font-medium">John Doe</p>
+                <p class="text-gray-400 text-xs">ADMIN</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main -->
+        <div class="flex-1 flex flex-col">
+          <header class="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+            <h1 class="text-2xl font-bold text-gray-900">Dashboard</h1>
+            <div class="flex items-center space-x-4">
+              <button class="relative p-2 text-gray-500">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+                <span class="absolute top-1 right-1 w-4 h-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">3</span>
+              </button>
+              <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-sm">J</div>
+                <span class="text-gray-700 font-medium">John Doe</span>
+              </div>
+            </div>
+          </header>
+
+          <main class="flex-1 p-6">
+            <!-- Stats -->
+            <div class="grid grid-cols-4 gap-4 mb-6">
+              <div class="bg-white rounded-xl border border-gray-100 p-5">
+                <p class="text-sm text-gray-500">Total Reports</p>
+                <p class="text-2xl font-bold text-gray-900 mt-1">1,234</p>
+              </div>
+              <div class="bg-white rounded-xl border border-gray-100 p-5">
+                <p class="text-sm text-gray-500">Verified</p>
+                <p class="text-2xl font-bold text-gray-900 mt-1">892</p>
+              </div>
+              <div class="bg-white rounded-xl border border-gray-100 p-5">
+                <p class="text-sm text-gray-500">Hotspots</p>
+                <p class="text-2xl font-bold text-gray-900 mt-1">15</p>
+              </div>
+              <div class="bg-white rounded-xl border border-gray-100 p-5">
+                <p class="text-sm text-gray-500">Crime Types</p>
+                <p class="text-2xl font-bold text-gray-900 mt-1">8</p>
+              </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="grid grid-cols-2 gap-6 mb-6">
+              <div class="bg-white rounded-xl border border-gray-100 p-5">
+                <h3 class="font-semibold text-gray-900 mb-3">Crime Distribution</h3>
+                <div class="h-48 bg-gray-50 rounded-lg flex items-center justify-center text-gray-400">[ Doughnut Chart ]</div>
+              </div>
+              <div class="bg-white rounded-xl border border-gray-100 p-5">
+                <h3 class="font-semibold text-gray-900 mb-3">Hotspot Locations</h3>
+                <div class="h-48 bg-gray-50 rounded-lg flex items-center justify-center text-gray-400">[ Bar Chart ]</div>
+              </div>
+            </div>
+
+            <!-- Recent Reports -->
+            <div class="bg-white rounded-xl border border-gray-100">
+              <div class="px-5 py-4 border-b border-gray-100 flex justify-between">
+                <h3 class="font-semibold text-gray-900">Recent Reports</h3>
+                <a href="#" class="text-sm text-green-600">View all</a>
+              </div>
+              <div class="divide-y divide-gray-100">
+                <div class="px-5 py-3">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="px-2 py-0.5 text-xs rounded-full bg-green-100 text-green-700">Illegal Logging</span>
+                    <span class="text-xs text-gray-500">Karura Forest</span>
+                  </div>
+                  <p class="text-sm text-gray-600">Suspicious activity spotted...</p>
+                </div>
+                <div class="px-5 py-3">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="px-2 py-0.5 text-xs rounded-full bg-green-100 text-green-700">Poaching</span>
+                    <span class="text-xs text-gray-500">Ngong Hills</span>
+                  </div>
+                  <p class="text-sm text-gray-600">Animal traps found...</p>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. REPORTS LIST -->
+  <div class="wireframe-section">
+    <h2 class="text-xl font-semibold text-green-700 mb-4 pb-2 border-b-2 border-green-700">4. Reports List</h2>
+    <div class="wireframe">
+      <div class="screen-label">REPORTS / LIST</div>
+      <div class="flex min-h-[550px] bg-gray-50">
+        <aside class="w-56 bg-gray-900 p-4">
+          <div class="flex items-center space-x-3 p-2 mb-4">
+            <div class="w-8 h-8 bg-green-600 rounded-lg"></div>
+            <span class="text-white font-bold text-sm">Green Future</span>
+          </div>
+          <a href="#" class="block px-3 py-2 rounded-lg text-gray-300 text-sm">Dashboard</a>
+          <a href="#" class="block px-3 py-2 rounded-lg bg-green-600 text-white text-sm">Reports</a>
+          <a href="#" class="block px-3 py-2 rounded-lg text-gray-300 text-sm">Analytics</a>
+        </aside>
+
+        <div class="flex-1 flex flex-col">
+          <header class="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+            <h1 class="text-xl font-bold text-gray-900">Reports</h1>
+            <button class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium">+ New Report</button>
+          </header>
+
+          <main class="flex-1 p-6">
+            <!-- Filters -->
+            <div class="bg-white rounded-xl border border-gray-100 p-3 mb-4">
+              <div class="flex gap-3">
+                <input type="text" placeholder="Search..." class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                <select class="px-3 py-2 border border-gray-300 rounded-lg text-sm"><option>All Types</option></select>
+              </div>
+            </div>
+
+            <!-- List -->
+            <div class="bg-white rounded-xl border border-gray-100 divide-y divide-gray-100">
+              <div class="p-4">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="px-2 py-0.5 text-xs rounded-full bg-red-100 text-red-700">Illegal Logging</span>
+                  <span class="px-2 py-0.5 text-xs rounded-full bg-yellow-100 text-yellow-700">PENDING</span>
+                </div>
+                <h3 class="font-medium text-gray-900">Karura Forest, Nairobi</h3>
+                <p class="text-sm text-gray-500 mt-1">Suspicious logging activity observed...</p>
+              </div>
+              <div class="p-4">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="px-2 py-0.5 text-xs rounded-full bg-yellow-100 text-yellow-700">Poaching</span>
+                  <span class="px-2 py-0.5 text-xs rounded-full bg-green-100 text-green-700">APPROVED</span>
+                </div>
+                <h3 class="font-medium text-gray-900">Ngong Hills Reserve</h3>
+                <p class="text-sm text-gray-500 mt-1">Animal traps discovered...</p>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. REPORT DETAILS -->
+  <div class="wireframe-section">
+    <h2 class="text-xl font-semibold text-green-700 mb-4 pb-2 border-b-2 border-green-700">5. Report Details</h2>
+    <div class="wireframe">
+      <div class="screen-label">REPORTS / DETAILS</div>
+      <div class="flex min-h-[600px] bg-gray-50">
+        <aside class="w-56 bg-gray-900 p-4">
+          <div class="flex items-center space-x-3 p-2 mb-4">
+            <div class="w-8 h-8 bg-green-600 rounded-lg"></div>
+            <span class="text-white font-bold text-sm">Green Future</span>
+          </div>
+          <a href="#" class="block px-3 py-2 rounded-lg text-gray-300 text-sm">Dashboard</a>
+          <a href="#" class="block px-3 py-2 rounded-lg bg-green-600 text-white text-sm">Reports</a>
+        </aside>
+
+        <div class="flex-1 flex flex-col">
+          <header class="bg-white border-b border-gray-200 px-6 py-4">
+            <h1 class="text-xl font-bold text-gray-900">Report Details</h1>
+          </header>
+
+          <main class="flex-1 p-6">
+            <!-- Back Button -->
+            <button class="flex items-center text-gray-600 text-sm mb-4">
+              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+              Back to Reports
+            </button>
+
+            <!-- Main Card -->
+            <div class="bg-white rounded-xl border border-gray-100">
+              <!-- Header -->
+              <div class="px-5 py-4 border-b border-gray-100 flex justify-between items-center">
+                <div>
+                  <h2 class="font-semibold text-gray-900 flex items-center gap-2">
+                    Report #123
+                    <span class="px-2 py-0.5 text-xs rounded-full bg-yellow-100 text-yellow-700">PENDING</span>
+                  </h2>
+                  <p class="text-xs text-gray-500 mt-0.5">Created: Nov 23, 2025</p>
+                </div>
+                <button class="bg-green-600 text-white px-3 py-1.5 rounded-lg text-sm">Edit</button>
+              </div>
+
+              <!-- Content: 2 Columns -->
+              <div class="p-5 grid grid-cols-2 gap-6">
+                <!-- Left Column -->
+                <div class="space-y-4">
+                  <div>
+                    <p class="text-xs text-gray-500 mb-1">Location</p>
+                    <p class="text-sm text-gray-900">Karura Forest, Nairobi</p>
+                  </div>
+                  <div>
+                    <p class="text-xs text-gray-500 mb-1">Incident Type</p>
+                    <p class="text-sm text-gray-900">Illegal Logging</p>
+                  </div>
+                  <div>
+                    <p class="text-xs text-gray-500 mb-1">Contact</p>
+                    <p class="text-sm text-gray-900">+254 712 345 678</p>
+                  </div>
+                  <div>
+                    <p class="text-xs text-gray-500 mb-1">Credibility Score</p>
+                    <p class="text-xl font-bold text-red-600">8.5/10</p>
+                  </div>
+                  <div>
+                    <p class="text-xs text-gray-500 mb-1">Status</p>
+                    <span class="px-2 py-0.5 text-xs rounded-full bg-yellow-100 text-yellow-700">PENDING</span>
+                  </div>
+                </div>
+                <!-- Right Column -->
+                <div class="space-y-4">
+                  <div>
+                    <p class="text-xs text-gray-500 mb-1">Description</p>
+                    <p class="text-sm text-gray-900">Suspicious logging activity observed near the main hiking trail...</p>
+                  </div>
+                  <div>
+                    <p class="text-xs text-gray-500 mb-1">Original Message</p>
+                    <div class="bg-gray-50 p-3 rounded-lg text-sm text-gray-700">
+                      "There are people cutting trees in Karura forest..."
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Media Card -->
+            <div class="bg-white rounded-xl border border-gray-100 mt-4">
+              <div class="px-5 py-3 border-b border-gray-100">
+                <h3 class="font-semibold text-gray-900 text-sm">Media (3)</h3>
+              </div>
+              <div class="p-5 grid grid-cols-3 gap-3">
+                <div class="aspect-square bg-gray-100 rounded-lg"></div>
+                <div class="aspect-square bg-gray-100 rounded-lg"></div>
+                <div class="aspect-square bg-gray-100 rounded-lg"></div>
+              </div>
+            </div>
+
+            <!-- Weather Card -->
+            <div class="bg-white rounded-xl border border-gray-100 mt-4">
+              <div class="px-5 py-3 border-b border-gray-100 bg-green-50">
+                <h3 class="font-semibold text-gray-900 text-sm">Weather at Location</h3>
+              </div>
+              <div class="p-5 grid grid-cols-2 gap-4">
+                <div class="bg-green-50 p-3 rounded-lg">
+                  <p class="text-xs text-gray-500 mb-1">Temperature</p>
+                  <p class="text-lg font-bold text-gray-900">24°C</p>
+                </div>
+                <div class="bg-green-50 p-3 rounded-lg">
+                  <p class="text-xs text-gray-500 mb-1">Precipitation</p>
+                  <p class="text-lg font-bold text-gray-900">120 mm</p>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. SETTINGS -->
+  <div class="wireframe-section">
+    <h2 class="text-xl font-semibold text-green-700 mb-4 pb-2 border-b-2 border-green-700">6. Settings</h2>
+    <div class="wireframe">
+      <div class="screen-label">ADMIN / SETTINGS</div>
+      <div class="flex min-h-[500px] bg-gray-50">
+        <aside class="w-56 bg-gray-900 p-4">
+          <div class="flex items-center space-x-3 p-2 mb-4">
+            <div class="w-8 h-8 bg-green-600 rounded-lg"></div>
+            <span class="text-white font-bold text-sm">Green Future</span>
+          </div>
+          <a href="#" class="block px-3 py-2 rounded-lg text-gray-300 text-sm">Dashboard</a>
+          <a href="#" class="block px-3 py-2 rounded-lg text-gray-300 text-sm">Reports</a>
+          <a href="#" class="block px-3 py-2 rounded-lg bg-green-600 text-white text-sm">Settings</a>
+        </aside>
+
+        <div class="flex-1 flex flex-col">
+          <header class="bg-white border-b border-gray-200 px-6 py-4">
+            <h1 class="text-xl font-bold text-gray-900">Settings</h1>
+          </header>
+
+          <main class="flex-1 p-6 flex justify-center">
+            <div class="w-full max-w-lg space-y-4">
+              <!-- Profile -->
+              <div class="bg-white rounded-xl border border-gray-100 p-5">
+                <h3 class="font-semibold text-gray-900 mb-4">Profile Settings</h3>
+                <div class="flex items-center gap-4 mb-4">
+                  <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-white text-xl font-bold">JD</div>
+                  <button class="px-3 py-1.5 text-sm border border-gray-300 rounded-lg">Change Photo</button>
+                </div>
+                <div class="space-y-3">
+                  <input type="text" value="John Doe" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                  <input type="email" value="john@example.com" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                  <button class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm">Save Changes</button>
+                </div>
+              </div>
+
+              <!-- Security -->
+              <div class="bg-white rounded-xl border border-gray-100 p-5">
+                <h3 class="font-semibold text-gray-900 mb-4">Security</h3>
+                <div class="space-y-3">
+                  <input type="password" placeholder="Current password" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                  <input type="password" placeholder="New password" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                  <button class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm">Update Password</button>
+                </div>
+              </div>
+
+              <!-- Notifications -->
+              <div class="bg-white rounded-xl border border-gray-100 p-5">
+                <h3 class="font-semibold text-gray-900 mb-4">Notifications</h3>
+                <div class="flex items-center justify-between py-2">
+                  <span class="text-sm text-gray-700">Email Notifications</span>
+                  <div class="w-10 h-5 bg-green-600 rounded-full relative">
+                    <div class="w-4 h-4 bg-white rounded-full absolute right-0.5 top-0.5"></div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between py-2">
+                  <span class="text-sm text-gray-700">SMS Alerts</span>
+                  <div class="w-10 h-5 bg-gray-300 rounded-full relative">
+                    <div class="w-4 h-4 bg-white rounded-full absolute left-0.5 top-0.5"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center py-10 text-gray-500">
+    <p class="font-medium">Green Future Society - Wireframes v1.0</p>
+    <p class="text-sm mt-2">November 2025</p>
+  </div>
+
+</body>
+</html>

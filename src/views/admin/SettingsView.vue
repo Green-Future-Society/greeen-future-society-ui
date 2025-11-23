@@ -48,10 +48,10 @@ function saveNotifications() {
 </script>
 
 <template>
-  <div class="flex min-h-screen bg-gray-50">
+  <div class="min-h-screen bg-gray-50 lg:flex">
     <Sidebar :is-open="sidebarOpen" @close="sidebarOpen = false" />
 
-    <div class="flex-1 flex flex-col">
+    <div class="flex-1 flex flex-col min-w-0">
       <NavBar title="Settings" @toggle-sidebar="sidebarOpen = !sidebarOpen" />
 
       <main class="flex-1 p-4 sm:p-6 flex justify-center">
