@@ -60,6 +60,16 @@ export const ReportStatus = {
 
 export type ReportStatus = typeof ReportStatus[keyof typeof ReportStatus]
 
+export interface ReportMedia {
+  id: number
+  mediaId: string
+  type: 'image' | 'video'
+  mimeType: string
+  url: string
+  size?: number | null
+  fileHash?: string | null
+}
+
 export interface Report {
   id?: number
   contact: string
@@ -74,6 +84,7 @@ export interface Report {
   createdOn?: string
   updatedOn?: string
   updatedBy?: string
+  media?: ReportMedia[]
 }
 
 export interface ReportFilters {
