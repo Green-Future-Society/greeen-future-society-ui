@@ -1,4 +1,4 @@
-const BASE_URL = 'https://semiconically-proacquittal-wanda.ngrok-free.dev/api/v1'
+const BASE_URL = 'https://wangari-maathai.onrender.com/api/v1'
 
 export interface DashboardStats {
   summary: {
@@ -25,11 +25,7 @@ export interface MapDataPoint {
 
 export const analyticsService = {
   async getDashboardStats(): Promise<DashboardStats> {
-    const response = await fetch(`${BASE_URL}/dashboard-stats`, {
-      headers: {
-        'ngrok-skip-browser-warning': 'true'
-      }
-    })
+    const response = await fetch(`${BASE_URL}/dashboard-stats`)
     if (!response.ok) {
       throw new Error('Failed to fetch dashboard stats')
     }
@@ -37,11 +33,7 @@ export const analyticsService = {
   },
 
   async getMapData(): Promise<MapDataPoint[]> {
-    const response = await fetch(`${BASE_URL}/map-data`, {
-      headers: {
-        'ngrok-skip-browser-warning': 'true'
-      }
-    })
+    const response = await fetch(`${BASE_URL}/map-data`)
     if (!response.ok) {
       throw new Error('Failed to fetch map data')
     }
