@@ -51,8 +51,8 @@ function handleLogout() {
 
   <aside
     :class="[
-      'w-64 bg-gray-900 h-screen flex flex-col z-50 sticky top-0',
-      'fixed lg:sticky',
+      'w-64 bg-gray-900 h-screen flex flex-col z-50',
+      'fixed lg:relative lg:flex-shrink-0',
       'transform transition-transform duration-300 ease-in-out',
       isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
     ]"

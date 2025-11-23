@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import Sidebar from '@/components/common/Sidebar.vue'
 import NavBar from '@/components/common/NavBar.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue'
@@ -7,10 +7,33 @@ import { useReportsStore } from '@/stores/reports.store'
 
 const reportsStore = useReportsStore()
 const sidebarOpen = ref(false)
+const displayCount = ref(5)
+const showTypeDropdown = ref(false)
+
+function selectType(type: string) {
+  reportsStore.setFilters({ incidentType: type })
+  showTypeDropdown.value = false
+}
 
 onMounted(() => {
   reportsStore.fetchReports()
 })
+
+const visibleReports = computed(() => {
+  return reportsStore.filteredReports.slice(0, displayCount.value)
+})
+
+const hasMoreReports = computed(() => {
+  return displayCount.value < reportsStore.filteredReports.length
+})
+
+const hasActiveFilters = computed(() => {
+  return reportsStore.filters.search || reportsStore.filters.incidentType
+})
+
+function loadMore() {
+  displayCount.value += 5
+}
 
 function getCredibilityColor(score: number) {
   if (score >= 0.7) return 'bg-red-100 text-red-700'
@@ -37,13 +60,13 @@ function formatDate(dateString: string) {
 </script>
 
 <template>
-  <div class="flex min-h-screen bg-gray-50">
+  <div class="min-h-screen bg-gray-50 lg:flex overflow-x-hidden">
     <Sidebar :is-open="sidebarOpen" @close="sidebarOpen = false" />
 
-    <div class="flex-1 flex flex-col">
+    <div class="flex-1 flex flex-col min-w-0 overflow-x-hidden">
       <NavBar title="Reports" @toggle-sidebar="sidebarOpen = !sidebarOpen" />
 
-      <main class="flex-1 p-4 sm:p-6">
+      <main class="flex-1 p-4 sm:p-6 overflow-x-hidden">
         <!-- Header -->
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
           <div>
@@ -74,34 +97,65 @@ function formatDate(dateString: string) {
 
         <!-- Filters -->
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-6">
-          <div class="flex flex-col sm:flex-row gap-3">
-            <div class="flex-1">
-              <input
-                :value="reportsStore.filters.search"
-                @input="reportsStore.setFilters({ search: ($event.target as HTMLInputElement).value })"
-                type="text"
-                placeholder="Search reports..."
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-              />
-            </div>
-            <div class="flex gap-3">
-              <select
-                :value="reportsStore.filters.incidentType"
-                @change="reportsStore.setFilters({ incidentType: ($event.target as HTMLSelectElement).value })"
-                class="flex-1 sm:flex-none px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-              >
-                <option value="">All Types</option>
-                <option v-for="type in reportsStore.incidentTypes" :key="type" :value="type">
-                  {{ type }}
-                </option>
-              </select>
+          <div class="flex flex-col gap-3">
+            <input
+              :value="reportsStore.filters.search"
+              @input="reportsStore.setFilters({ search: ($event.target as HTMLInputElement).value })"
+              type="text"
+              placeholder="Search reports..."
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+            />
+            <!-- Custom Dropdown -->
+            <div class="relative">
               <button
-                @click="reportsStore.clearFilters()"
-                class="px-4 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors whitespace-nowrap"
+                type="button"
+                @click="showTypeDropdown = !showTypeDropdown"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-left flex items-center justify-between"
               >
-                Clear
+                <span :class="reportsStore.filters.incidentType ? 'text-gray-900' : 'text-gray-500'">
+                  {{ reportsStore.filters.incidentType || 'All Types' }}
+                </span>
+                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
+              <!-- Dropdown menu - opens downward -->
+              <div
+                v-if="showTypeDropdown"
+                class="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-48 overflow-y-auto"
+              >
+                <button
+                  type="button"
+                  @click="selectType('')"
+                  :class="['w-full px-4 py-2 text-left text-sm hover:bg-green-50', !reportsStore.filters.incidentType && 'bg-green-100 text-green-700']"
+                >
+                  All Types
+                </button>
+                <button
+                  v-for="type in reportsStore.incidentTypes"
+                  :key="type"
+                  type="button"
+                  @click="selectType(type)"
+                  :class="['w-full px-4 py-2 text-left text-sm hover:bg-green-50', reportsStore.filters.incidentType === type && 'bg-green-100 text-green-700']"
+                >
+                  {{ type }}
+                </button>
+              </div>
+              <!-- Backdrop to close dropdown -->
+              <div
+                v-if="showTypeDropdown"
+                class="fixed inset-0 z-40"
+                @click="showTypeDropdown = false"
+              ></div>
             </div>
+            <!-- Clear button - only shows when filters are active -->
+            <button
+              v-if="hasActiveFilters"
+              @click="reportsStore.clearFilters()"
+              class="w-full py-2 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-lg transition-colors text-sm font-medium"
+            >
+              Clear Filters
+            </button>
           </div>
         </div>
 
@@ -111,9 +165,9 @@ function formatDate(dateString: string) {
 
           <div v-else class="divide-y divide-gray-100">
             <div
-              v-for="report in reportsStore.filteredReports"
+              v-for="report in visibleReports"
               :key="report.id"
-              class="p-6 hover:bg-gray-50 transition-colors"
+              class="p-4 sm:p-6 hover:bg-gray-50 transition-colors"
             >
               <div class="flex items-start justify-between gap-3">
                 <div class="flex-1 min-w-0">
@@ -172,6 +226,16 @@ function formatDate(dateString: string) {
               <router-link to="/reports/new" class="text-green-600 hover:text-green-700 mt-2 inline-block">
                 Create your first report
               </router-link>
+            </div>
+
+            <!-- Load More Button -->
+            <div v-if="hasMoreReports" class="p-4 text-center border-t border-gray-100">
+              <button
+                @click="loadMore"
+                class="w-full sm:w-auto px-6 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors"
+              >
+                Load More ({{ reportsStore.filteredReports.length - displayCount }} remaining)
+              </button>
             </div>
           </div>
         </div>

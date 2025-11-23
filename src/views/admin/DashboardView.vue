@@ -60,7 +60,10 @@ const crimeChartData = computed(() => {
 const hotspotChartData = computed(() => {
   if (!stats.value) return { labels: [], datasets: [] }
 
-  const labels = Object.keys(stats.value.hotspots)
+  // Truncate long location names for mobile
+  const labels = Object.keys(stats.value.hotspots).map(label =>
+    label.length > 12 ? label.substring(0, 12) + '...' : label
+  )
   const data = Object.values(stats.value.hotspots)
 
   return {
@@ -96,6 +99,13 @@ const barOptions = {
     legend: { display: false }
   },
   scales: {
+    x: {
+      ticks: {
+        maxRotation: 45,
+        minRotation: 45,
+        font: { size: 10 }
+      }
+    },
     y: {
       beginAtZero: true,
       ticks: { stepSize: 1 }
@@ -114,13 +124,13 @@ function formatDate(dateString: string) {
 </script>
 
 <template>
-  <div class="flex min-h-screen bg-gray-50">
+  <div class="min-h-screen bg-gray-50 lg:flex overflow-x-hidden">
     <Sidebar :is-open="sidebarOpen" @close="sidebarOpen = false" />
 
-    <div class="flex-1 flex flex-col">
+    <div class="flex-1 flex flex-col min-w-0 overflow-x-hidden">
       <NavBar title="Dashboard" @toggle-sidebar="sidebarOpen = !sidebarOpen" />
 
-      <main class="flex-1 p-4 sm:p-6">
+      <main class="flex-1 p-4 sm:p-6 overflow-x-hidden">
         <LoadingSpinner v-if="loading" text="Loading dashboard data..." />
 
         <template v-else-if="stats">
