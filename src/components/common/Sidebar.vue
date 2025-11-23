@@ -42,20 +42,16 @@ function handleLogout() {
 </script>
 
 <template>
-  <!-- Mobile overlay -->
+  <!-- Mobile overlay with backdrop blur -->
   <div
     v-if="isOpen"
-    class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+    class="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden"
     @click="emit('close')"
   ></div>
 
   <aside
-    :class="[
-      'w-64 bg-gray-900 h-screen flex flex-col z-50',
-      'fixed lg:relative lg:flex-shrink-0',
-      'transform transition-transform duration-300 ease-in-out',
-      isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-    ]"
+    class="w-64 bg-gray-900 h-screen flex flex-col z-50 fixed top-0 left-0 transform transition-transform duration-300 ease-in-out overflow-y-auto"
+    :class="isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'"
   >
     <!-- Logo -->
     <div class="p-6 border-b border-gray-800">

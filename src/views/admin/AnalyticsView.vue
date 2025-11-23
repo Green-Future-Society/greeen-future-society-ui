@@ -149,10 +149,10 @@ const lineOptions = {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-50 lg:flex">
+  <div class="min-h-screen bg-gray-50">
     <Sidebar :is-open="sidebarOpen" @close="sidebarOpen = false" />
 
-    <div class="flex-1 flex flex-col min-w-0">
+    <div class="flex flex-col min-h-screen lg:ml-64">
       <NavBar title="Analytics" @toggle-sidebar="sidebarOpen = !sidebarOpen" />
 
       <main class="flex-1 p-4 sm:p-6">
