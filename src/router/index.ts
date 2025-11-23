@@ -27,6 +27,12 @@ const router = createRouter({
       component: () => import('@/views/auth/ForgotPasswordView.vue'),
       meta: { requiresGuest: true }
     },
+    {
+      path: '/confirm',
+      name: 'confirm-email',
+      component: () => import('@/views/auth/ConfirmEmailView.vue'),
+      meta: { requiresGuest: true }
+    },
     // Admin Routes
     {
       path: '/dashboard',
